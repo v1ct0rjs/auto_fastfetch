@@ -1,5 +1,7 @@
 ## Documentación de *auto_fastfetch*
 
+Durante la reunión diaria de esta mañana, se nos sugirió practicar la documentación en **Markdown**. Aprovechando que estoy trabajando en mi proyecto de fin de grado y accediendo por consola a una Raspberry Pi, me surgió la necesidad de visualizar información detallada del sistema. Para facilitar este proceso, decidí desarrollar un sencillo script que automatiza la instalación de **Fastfetch** en cualquier distribución Linux.
+
 Este script automatiza la verificación de dependencias, la compilación y la instalación de [Fastfetch](https://github.com/fastfetch-cli/fastfetch) directamente desde su repositorio oficial en GitHub. Una vez completada la instalación, ejecuta automáticamente la herramienta.
 
 **Fastfetch** es una herramienta de línea de comandos, similar a Neofetch, diseñada para recopilar y mostrar información detallada del sistema de manera estética y eficiente. Es reconocida por su rapidez y alto grado de personalización. Actualmente, es compatible con múltiples sistemas operativos, incluyendo Linux, macOS y Windows.

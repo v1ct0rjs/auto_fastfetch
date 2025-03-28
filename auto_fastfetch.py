@@ -1,17 +1,21 @@
-#!/usr/bin/env python3
+# Autor: Víctor Manuel Jiménez Sánchez
+# Fecha: 28/03/2025
+# Descripción: Script para instalar y ejecutar fastfetch automáticamente.
+#              Verifica dependencias, clona el repositorio, compila y ejecuta el binario.
+
 import os
 import subprocess
 import shutil
 import platform
 from pathlib import Path
 
-# Ruta donde se clonará y construirá fastfetch
-FASTFETCH_DIR = Path.home() / "apps" / "fastfetch"
-# Ruta al binario de fastfetch después de compilarlo
-FASTFETCH_BIN = FASTFETCH_DIR / "build" / "fastfetch"
 
-# Lista de dependencias necesarias para compilar fastfetch
-DEPENDENCIAS = ["git", "cmake", "make", "gcc"]
+FASTFETCH_DIR = Path.home() / "apps" / "fastfetch" # Ruta donde se clonará y construirá fastfetch
+
+FASTFETCH_BIN = FASTFETCH_DIR / "build" / "fastfetch" # Ruta al binario de fastfetch después de compilarlo
+
+
+DEPENDENCIAS = ["git", "cmake", "make", "gcc"] # Dependencias necesarias para compilar fastfetch
 
 def comando_disponible(comando):
     """
@@ -27,15 +31,14 @@ def instalar_dependencias():
     """
     print("[+] Verificando dependencias...")
 
-    # Lista de dependencias faltantes
-    faltantes = [cmd for cmd in DEPENDENCIAS if not comando_disponible(cmd)]
+    
+    faltantes = [cmd for cmd in DEPENDENCIAS if not comando_disponible(cmd)] # Filtra las dependencias faltantes
     if not faltantes:
         print("[✓] Todas las dependencias están presentes.")
         return
 
     print(f"[!] Faltan dependencias: {', '.join(faltantes)}")
-    # Detecta la distribución del sistema operativo
-    distro = detectar_distro()
+    distro = detectar_distro() # Detecta la distribución del sistema operativo
 
     # Instala las dependencias según la distribución
     if distro == "debian":
@@ -46,8 +49,7 @@ def instalar_dependencias():
     elif distro == "fedora":
         subprocess.run(["sudo", "dnf", "install", "-y"] + faltantes)
     else:
-        # Si la distribución no es soportada, muestra un mensaje y termina el programa
-        print("[x] Distro no soportada. Instala manualmente: " + " ".join(faltantes))
+        print("[x] Distro no soportada. Instala manualmente: " + " ".join(faltantes)) # Si la distribución no es soportada termina el programa
         exit(1)
 
 def detectar_distro():
@@ -74,12 +76,10 @@ def instalar_fastfetch():
     Si ya está clonado, actualiza el repositorio antes de compilar.
     """
     print("[+] Descargando e instalando fastfetch...")
-    if FASTFETCH_DIR.exists():
-        # Si el repositorio ya existe, realiza un pull para actualizarlo
+    if FASTFETCH_DIR.exists():                  # Si ya está clonado, actualiza         
         print("[i] fastfetch ya está clonado, actualizando...")
         subprocess.run(["git", "pull"], cwd=FASTFETCH_DIR)
-    else:
-        # Clona el repositorio en la ruta especificada
+    else:                                       # Si no, clona el repositorio
         os.makedirs(FASTFETCH_DIR.parent, exist_ok=True)
         subprocess.run(["git", "clone", "https://github.com/fastfetch-cli/fastfetch", str(FASTFETCH_DIR)], check=True)
 
@@ -103,20 +103,17 @@ def main():
     2. Descarga y compila fastfetch si no está instalado.
     3. Ejecuta fastfetch.
     """
-    if FASTFETCH_BIN.exists():
-        # Si fastfetch ya está instalado, simplemente lo ejecuta sin mostrar mensajes adicionales
+    if FASTFETCH_BIN.exists(): # Si fastfetch ya está instalado, solo ejecútalo
         ejecutar_fastfetch()
     else:
-        # Si fastfetch no está instalado, realiza todo el proceso de instalación
-        print("[+] Iniciando instalación de fastfetch...")
+        print("[+] Iniciando instalación de fastfetch...") # Si no, instala dependencias y compila fastfetch
         instalar_dependencias()
         instalar_fastfetch()
         ejecutar_fastfetch()
 
-        # Mensaje final
         print("\n[✓] El programa ha terminado. Fastfetch ha sido instalado y ejecutado correctamente.")
         print("[i] Si deseas volver a ejecutarlo, simplemente utiliza este script nuevamente.")
 
-# Punto de entrada del script
+
 if __name__ == "__main__":
     main()
