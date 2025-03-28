@@ -105,11 +105,11 @@ source ~/.config/fish/config.fish
 
 ### Ejemplo de Ejecución
 
-![Peek 28-03-2025 12-00](/home/v1ct0r/auto_fastfetch/Peek 28-03-2025 12-00.gif)
+![Peek 28-03-2025 12-00](https://github.com/v1ct0rjs/auto_fastfetch/blob/main/Peek%2028-03-2025%2012-00.gif)
 
-![image-20250328112122525](/home/v1ct0r/auto_fastfetch/image-20250328112122525.png)
+![image-20250328112122525](https://github.com/v1ct0rjs/auto_fastfetch/blob/main/image-20250328112122525.png)
 
-![image-20250328112154565](/home/v1ct0r/auto_fastfetch/image-20250328112154565.png)
+![image-20250328112154565](https://github.com/v1ct0rjs/auto_fastfetch/blob/main/image-20250328112154565.png)
 
 
 
