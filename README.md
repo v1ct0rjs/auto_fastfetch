@@ -1,6 +1,10 @@
 ## Documentación de *auto_fastfetch*
 
-Este script permite verificar dependencias necesarias y compilar e instalar [Fastfetch](vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html) de manera automatizada. Una vez instalado, lo ejecuta automáticamente.
+Este script automatiza la verificación de dependencias, la compilación y la instalación de [Fastfetch](https://github.com/fastfetch-cli/fastfetch) directamente desde su repositorio oficial en GitHub. Una vez completada la instalación, ejecuta automáticamente la herramienta.
+
+**Fastfetch** es una herramienta de línea de comandos, similar a Neofetch, diseñada para recopilar y mostrar información detallada del sistema de manera estética y eficiente. Es reconocida por su rapidez y alto grado de personalización. Actualmente, es compatible con múltiples sistemas operativos, incluyendo Linux, macOS y Windows.
+
+Este script está diseñado para facilitar la instalación de Fastfetch en diversas distribuciones Linux, abarcando familias como Debian, Red Hat y Arch. Al utilizar directamente el repositorio de GitHub de **Fastfetch**, se simplifica considerablemente el proceso de instalación del programa y sus dependencias, asegurando que los usuarios obtengan la versión más reciente y optimizada de la herramienta.
 
 ### Requisitos previos
 
@@ -24,7 +28,7 @@ auto_fastfetch/
  1. Clona o descarga el repositorio que contiene este script.
 
     ```bash
-    git clone git@github.com:v1ct0rjs/auto_fastfetch.git
+    git clone https://github.com/v1ct0rjs/auto_fastfetch.git
     ```
 
     
@@ -100,6 +104,8 @@ source ~/.config/fish/config.fish
 ------
 
 ### Ejemplo de Ejecución
+
+![Peek 28-03-2025 12-00](/home/v1ct0r/auto_fastfetch/Peek 28-03-2025 12-00.gif)
 
 ![image-20250328112122525](/home/v1ct0r/auto_fastfetch/image-20250328112122525.png)
 
