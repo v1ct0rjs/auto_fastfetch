@@ -96,7 +96,7 @@ source ~/.config/fish/config.fish
 - Una vez hecho el alias en tu shell preferido, puedes ejecutar:
 
   ```bash
-  auto_fastfetch
+  python auto_fastfetch
   ```
 
 - El script verificará si *fastfetch* ya está instalado y simplemente lo ejecutará sin mostrar mensajes adicionales.
